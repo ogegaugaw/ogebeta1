@@ -1,2 +1,0 @@
-# ogebeta1
-test
