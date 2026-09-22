@@ -1,650 +1,772 @@
-<!DOCTYPE html>
-<html lang="vi">
+<!DOCTYPE html><html lang="vi">
 <head>
 <meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
->
-
-<title>Tạo Key + Link4M</title>
-
-<link
-  href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-  rel="stylesheet"
->
-
-<style>
-
-:root {
-  --bg: #07070a;
-  --card: rgba(255,255,255,.065);
-  --card2: rgba(255,255,255,.035);
-  --stroke: rgba(255,255,255,.13);
-  --stroke2: rgba(255,255,255,.08);
-  --text: #f4f4f5;
-  --muted: #a1a1aa;
-  --blue: #3b82f6;
-  --blue2: #2563eb;
-  --green: #22c55e;
-  --red: #ef4444;
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>Tạo Key Beta</title><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>
+:root{
+  --bg:#050609;
+  --glass:rgba(255,255,255,.065);
+  --glass2:rgba(255,255,255,.035);
+  --stroke:rgba(255,255,255,.13);
+  --stroke-soft:rgba(255,255,255,.07);
+  --text:#f7f8fb;
+  --muted:#9b9da7;
+  --blue:#4b8dff;
+  --blue2:#246bff;
+  --green:#39dc7b;
+  --red:#ff6868;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-body {
+html,body{
+  width:100%;
+  min-height:100%;
+}
+
+body{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+
   font-family:
     "Plus Jakarta Sans",
     system-ui,
     sans-serif;
 
-  min-height: 100vh;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  padding: 20px;
-
-  color: var(--text);
-
-  overflow: hidden;
-
+  color:var(--text);
   background:
-
     radial-gradient(
-      700px 400px
-      at 0% 0%,
-      rgba(59,130,246,.22),
-      transparent 60%
+      600px 420px at 5% 0%,
+      rgba(65,130,255,.18),
+      transparent 68%
     ),
-
     radial-gradient(
-      600px 400px
-      at 100% 100%,
-      rgba(0,180,255,.12),
-      transparent 60%
+      500px 380px at 100% 100%,
+      rgba(0,190,255,.11),
+      transparent 68%
     ),
+    #050609;
 
-    var(--bg);
+  overflow-x:hidden;
 }
 
-body::before {
-  content: "";
+/* =========================
+   MOVING LIQUID LIGHT
+========================= */
 
-  position: fixed;
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  pointer-events:none;
+  border-radius:50%;
+  filter:blur(35px);
+  z-index:0;
+}
 
-  width: 300px;
-  height: 300px;
-
-  border-radius: 50%;
+body::before{
+  width:320px;
+  height:320px;
+  left:-150px;
+  top:-130px;
 
   background:
     radial-gradient(
       circle,
-      rgba(80,150,255,.12),
-      transparent 70%
+      rgba(80,145,255,.20),
+      transparent 68%
     );
 
-  filter: blur(25px);
-
-  left: -100px;
-  top: -80px;
-
   animation:
-    floatLight 9s
-    ease-in-out infinite;
-
-  pointer-events: none;
+    liquidOne 10s ease-in-out infinite;
 }
 
-body::after {
-  content: "";
-
-  position: fixed;
-
-  width: 300px;
-  height: 300px;
-
-  border-radius: 50%;
+body::after{
+  width:340px;
+  height:340px;
+  right:-160px;
+  bottom:-150px;
 
   background:
     radial-gradient(
       circle,
-      rgba(0,200,255,.10),
-      transparent 70%
+      rgba(0,205,255,.13),
+      transparent 68%
     );
 
-  filter: blur(30px);
-
-  right: -100px;
-  bottom: -100px;
-
   animation:
-    floatLight2 11s
-    ease-in-out infinite;
-
-  pointer-events: none;
+    liquidTwo 12s ease-in-out infinite;
 }
 
-@keyframes floatLight {
-
-  0%,100% {
-    transform:
-      translate(0,0)
-      scale(1);
+@keyframes liquidOne{
+  0%,100%{
+    transform:translate(0,0) scale(1);
   }
-
-  50% {
-    transform:
-      translate(120px,80px)
-      scale(1.2);
+  50%{
+    transform:translate(150px,110px) scale(1.18);
   }
-
 }
 
-@keyframes floatLight2 {
-
-  0%,100% {
-    transform:
-      translate(0,0)
-      scale(1);
+@keyframes liquidTwo{
+  0%,100%{
+    transform:translate(0,0) scale(1);
   }
-
-  50% {
-    transform:
-      translate(-100px,-70px)
-      scale(1.15);
+  50%{
+    transform:translate(-130px,-100px) scale(1.15);
   }
-
 }
 
-.shell {
-  width: 100%;
-  max-width: 420px;
-  position: relative;
-  z-index: 2;
+/* =========================
+   SHELL
+========================= */
+
+.shell{
+  width:100%;
+  max-width:430px;
+  position:relative;
+  z-index:2;
 }
 
-.card {
-  position: relative;
+/* =========================
+   GLASS CARD
+========================= */
 
-  overflow: hidden;
+.card{
+  position:relative;
+  overflow:hidden;
 
-  padding:
-    28px
-    22px
-    24px;
+  padding:28px 22px 22px;
 
-  border-radius: 27px;
+  border-radius:30px;
 
   background:
-
     linear-gradient(
       145deg,
       rgba(255,255,255,.095),
-      rgba(255,255,255,.035)
+      rgba(255,255,255,.032)
     );
 
-  border:
-    1px solid var(--stroke);
-
-  box-shadow:
-
-    0 30px 80px
-      rgba(0,0,0,.52),
-
-    inset 0 1px 0
-      rgba(255,255,255,.15),
-
-    inset 0 -1px 0
-      rgba(255,255,255,.025);
+  border:1px solid var(--stroke);
 
   backdrop-filter:
-    blur(28px)
-    saturate(145%);
+    blur(30px)
+    saturate(155%);
 
   -webkit-backdrop-filter:
-    blur(28px)
-    saturate(145%);
+    blur(30px)
+    saturate(155%);
+
+  box-shadow:
+    0 35px 90px rgba(0,0,0,.58),
+    inset 0 1px 0 rgba(255,255,255,.16),
+    inset 0 -1px 0 rgba(255,255,255,.025);
+
+  animation:
+    cardIn .65s cubic-bezier(.2,.8,.2,1);
 }
 
-.card::before {
-  content: "";
+@keyframes cardIn{
+  from{
+    opacity:0;
+    transform:
+      translateY(18px)
+      scale(.97);
+  }
+  to{
+    opacity:1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
 
-  position: absolute;
+/* glass reflection */
 
-  inset: 0;
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-40%;
 
   background:
     linear-gradient(
-      120deg,
-      transparent 20%,
-      rgba(255,255,255,.10),
-      transparent 55%
+      115deg,
+      transparent 38%,
+      rgba(255,255,255,.075) 48%,
+      transparent 58%
     );
 
-  transform:
-    translateX(-120%);
+  transform:translateX(-65%) rotate(8deg);
 
   animation:
-    shine 6s
-    ease-in-out infinite;
+    glassShine 7s ease-in-out infinite;
 
-  pointer-events: none;
+  pointer-events:none;
 }
 
-@keyframes shine {
-
-  0%,45% {
+@keyframes glassShine{
+  0%,45%{
     transform:
-      translateX(-120%);
+      translateX(-65%)
+      rotate(8deg);
   }
 
-  70%,100% {
+  70%,100%{
     transform:
-      translateX(120%);
+      translateX(65%)
+      rotate(8deg);
   }
-
 }
 
-.badge {
-  display: inline-flex;
+/* =========================
+   TOP ICON
+========================= */
 
-  align-items: center;
+.top{
+  position:relative;
+  z-index:1;
 
-  gap: 6px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 
-  font-size: 10px;
+  margin-bottom:20px;
+}
 
-  font-weight: 700;
+.icon{
+  width:46px;
+  height:46px;
 
-  letter-spacing: .07em;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-  text-transform: uppercase;
+  border-radius:15px;
 
-  color: #a8ccff;
+  font-size:21px;
 
   background:
-    rgba(59,130,246,.10);
+    linear-gradient(
+      145deg,
+      rgba(80,145,255,.20),
+      rgba(255,255,255,.045)
+    );
 
-  border:
-    1px solid
-    rgba(59,130,246,.22);
+  border:1px solid
+    rgba(105,160,255,.22);
 
-  padding:
-    6px 10px;
-
-  border-radius: 999px;
-
-  margin-bottom: 14px;
+  box-shadow:
+    inset 0 1px 0
+      rgba(255,255,255,.12),
+    0 8px 28px
+      rgba(45,110,255,.12);
 }
 
-.badge-dot {
-  width: 6px;
-  height: 6px;
+.live{
+  display:flex;
+  align-items:center;
+  gap:7px;
 
-  border-radius: 50%;
+  padding:7px 10px;
 
-  background: #60a5fa;
+  border-radius:999px;
+
+  color:#a9caff;
+
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+
+  background:
+    rgba(59,130,246,.08);
+
+  border:1px solid
+    rgba(80,145,255,.18);
+}
+
+.live-dot{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+
+  background:#61a1ff;
 
   box-shadow:
     0 0 10px
-    rgba(96,165,250,.8);
+    rgba(80,150,255,.9);
+
+  animation:pulse 1.8s ease-in-out infinite;
 }
 
-h1 {
-  font-size: 23px;
-
-  font-weight: 800;
-
-  letter-spacing: -.035em;
-
-  margin-bottom: 8px;
+@keyframes pulse{
+  0%,100%{
+    opacity:.45;
+    transform:scale(.8);
+  }
+  50%{
+    opacity:1;
+    transform:scale(1.15);
+  }
 }
 
-.sub {
-  font-size: 13.5px;
+/* =========================
+   TEXT
+========================= */
 
-  line-height: 1.55;
-
-  color: var(--muted);
-
-  margin-bottom: 21px;
+.content{
+  position:relative;
+  z-index:1;
 }
 
-.btn {
-  width: 100%;
+h1{
+  font-size:25px;
+  line-height:1.15;
+  font-weight:800;
+  letter-spacing:-.045em;
+  margin-bottom:9px;
+}
 
-  border: none;
+.sub{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.65;
+  margin-bottom:22px;
+}
 
-  border-radius: 15px;
+.sub b{
+  color:#dfeaff;
+}
 
-  padding:
-    15px 16px;
+/* =========================
+   MAIN BUTTON
+========================= */
 
-  font-size: 14px;
+.btn{
+  position:relative;
+  width:100%;
 
-  font-weight: 700;
+  border:0;
+  border-radius:16px;
 
-  font-family: inherit;
+  padding:15px 16px;
 
-  cursor: pointer;
+  font-family:inherit;
+  font-size:13.5px;
+  font-weight:800;
 
-  color: white;
+  color:white;
+
+  cursor:pointer;
+
+  overflow:hidden;
 
   transition:
     transform .18s ease,
-    opacity .18s ease,
-    box-shadow .18s ease;
+    box-shadow .2s ease,
+    opacity .2s ease;
 }
 
-.btn:active {
-  transform:
-    scale(.975);
-}
+.btn::before{
+  content:"";
+  position:absolute;
+  inset:0;
 
-.btn:disabled {
-  opacity: .5;
-
-  cursor:
-    not-allowed;
-
-  transform:
-    none;
-}
-
-.btn-main {
   background:
+    linear-gradient(
+      110deg,
+      transparent 25%,
+      rgba(255,255,255,.16),
+      transparent 75%
+    );
 
+  transform:translateX(-100%);
+  transition:transform .55s ease;
+}
+
+.btn:hover::before{
+  transform:translateX(100%);
+}
+
+.btn:active{
+  transform:scale(.975);
+}
+
+.btn:disabled{
+  opacity:.48;
+  cursor:not-allowed;
+}
+
+.btn-main{
+  background:
     linear-gradient(
       135deg,
-      #3b82f6,
-      #2563eb
+      #4d91ff,
+      #286dff
     );
 
   box-shadow:
-    0 10px 30px
-    rgba(37,99,235,.30);
+    0 12px 32px
+      rgba(40,109,255,.28),
+    inset 0 1px 0
+      rgba(255,255,255,.20);
 }
 
-.btn-main:hover {
+.btn-main:hover{
   box-shadow:
-    0 12px 35px
-    rgba(37,99,235,.40);
+    0 15px 38px
+      rgba(40,109,255,.40),
+    inset 0 1px 0
+      rgba(255,255,255,.22);
 }
 
-.btn-green {
-  background:
+.btn-green{
+  margin-top:9px;
 
+  background:
     linear-gradient(
       135deg,
-      #22c55e,
-      #16a34a
+      #35d978,
+      #19ae59
     );
 
   box-shadow:
-    0 8px 24px
-    rgba(34,197,94,.20);
-
-  margin-top: 10px;
+    0 10px 28px
+      rgba(30,200,100,.20);
 }
 
-.btn-ghost {
+.btn-ghost{
+  margin-top:8px;
+
+  color:#d8d9df;
+
   background:
-    rgba(255,255,255,.055);
+    rgba(255,255,255,.045);
 
-  border:
-    1px solid var(--stroke);
+  border:1px solid
+    rgba(255,255,255,.10);
 
-  margin-top: 8px;
+  box-shadow:
+    inset 0 1px 0
+      rgba(255,255,255,.06);
 }
 
-#status {
-  min-height: 22px;
+/* =========================
+   STATUS
+========================= */
 
-  margin:
-    14px 0 4px;
+.status-wrap{
+  display:flex;
+  align-items:center;
+  gap:8px;
 
-  font-size: 12.5px;
+  margin-top:14px;
+  min-height:22px;
 
-  font-weight: 600;
-
-  color: #fbbf24;
-
-  white-space: pre-line;
-
-  word-break: break-word;
+  padding:0 2px;
 }
 
-#status.err {
-  color:
-    #f87171;
+.status-icon{
+  width:7px;
+  height:7px;
+  flex:none;
+
+  border-radius:50%;
+
+  background:#f7c948;
+
+  box-shadow:
+    0 0 9px
+    rgba(247,201,72,.55);
 }
 
-#status.ok {
-  color:
-    #4ade80;
+#status{
+  color:#c7c8ce;
+
+  font-size:11.5px;
+  font-weight:600;
+
+  white-space:pre-line;
+  word-break:break-word;
 }
 
-#result {
-  display: none;
-  margin-top: 18px;
+#status.err{
+  color:#ff8585;
 }
 
-.block {
-  margin-bottom: 14px;
+#status.ok{
+  color:#62e596;
 }
 
-.label {
-  font-size: 10px;
+/* =========================
+   RESULT
+========================= */
 
-  font-weight: 700;
+#result{
+  display:none;
 
-  text-transform: uppercase;
+  margin-top:18px;
+  padding-top:17px;
 
-  letter-spacing: .07em;
+  border-top:1px solid
+    rgba(255,255,255,.075);
 
-  color: var(--muted);
-
-  margin-bottom: 8px;
+  animation:
+    resultIn .45s ease;
 }
 
-.box {
-  border-radius: 15px;
+@keyframes resultIn{
+  from{
+    opacity:0;
+    transform:translateY(8px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
 
-  padding:
-    14px;
+.block{
+  margin-bottom:15px;
+}
 
-  font-size: 13px;
+.label{
+  display:flex;
+  align-items:center;
+  gap:7px;
 
-  font-weight: 700;
+  margin-bottom:8px;
 
-  word-break: break-all;
+  color:#858894;
+
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+
+.label::before{
+  content:"";
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:#638fff;
+  box-shadow:0 0 8px rgba(70,130,255,.7);
+}
+
+.box{
+  min-height:48px;
+
+  display:flex;
+  align-items:center;
+
+  padding:13px 14px;
+
+  border-radius:15px;
+
+  font-size:12px;
+  font-weight:700;
+
+  line-height:1.5;
+
+  word-break:break-all;
 
   background:
     rgba(255,255,255,.035);
 
-  border:
-    1px dashed
-    var(--stroke);
+  border:1px solid
+    rgba(255,255,255,.08);
+
+  box-shadow:
+    inset 0 1px 0
+      rgba(255,255,255,.045);
 }
 
-.box.key {
-  color:
-    #86efac;
+.box.key{
+  color:#83efa9;
 
   background:
-    rgba(34,197,94,.065);
+    linear-gradient(
+      135deg,
+      rgba(35,210,110,.075),
+      rgba(255,255,255,.025)
+    );
 
   border-color:
-    rgba(34,197,94,.30);
+    rgba(55,220,125,.22);
 }
 
-.box.link {
-  color:
-    #93c5fd;
+.box.link{
+  color:#91c1ff;
 
   background:
-    rgba(59,130,246,.065);
+    linear-gradient(
+      135deg,
+      rgba(60,130,255,.075),
+      rgba(255,255,255,.025)
+    );
 
   border-color:
-    rgba(59,130,246,.30);
+    rgba(75,140,255,.22);
 }
 
-.foot {
-  margin-top: 18px;
+/* =========================
+   FOOTER
+========================= */
 
-  font-size: 11px;
+.foot{
+  position:relative;
+  z-index:1;
 
-  line-height: 1.55;
+  margin-top:20px;
 
-  color:
-    #71717a;
+  color:#656872;
 
-  text-align: center;
+  text-align:center;
+
+  font-size:10px;
+  line-height:1.5;
 }
 
-</style>
-</head>
+.foot span{
+  color:#8b8e98;
+}
 
-<body>
+/* =========================
+   MOBILE
+========================= */
 
-<div class="shell">
+@media(max-width:380px){
+  body{
+    padding:14px;
+  }
 
-  <div class="card">
+  .card{
+    padding:
+      24px 18px 19px;
+    border-radius:26px;
+  }
 
-    <div class="badge">
-      <span class="badge-dot"></span>
-      One-time key
-    </div>
+  h1{
+    font-size:22px;
+  }
+}
+</style></head><body><div class="shell">  <div class="card"><div class="top">
+  <div class="icon">🔑</div>
 
-    <h1>
-      Tạo Key Beta
-    </h1>
+  <div class="live">
+    <span class="live-dot"></span>
+    Secure Key
+  </div>
+</div>
 
-    <p class="sub">
-      Bấm <b>Key Free</b> để tạo Key.
-      Hoàn thành Link4M để nhận Key
-      và sử dụng ứng dụng.
-    </p>
+<div class="content">
 
-    <button
-      class="btn btn-main"
-      id="btnCreate"
-      onclick="createAll()"
-    >
-      Tạo Key Free
-    </button>
+  <h1>Tạo Key Beta</h1>
 
-    <div id="status">
-      Sẵn sàng tạo Key...
-    </div>
+  <p class="sub">
+    Tạo <b>Key dùng một lần</b> để sử dụng ứng dụng.
+    Hoàn thành Link4M để nhận Key của bạn.
+  </p>
 
-    <div id="result">
+  <button
+    class="btn btn-main"
+    id="btnCreate"
+    onclick="createAll()"
+  >
+    Tạo Key Free
+  </button>
 
-      <div class="block">
+  <div class="status-wrap">
+    <span class="status-icon"></span>
+    <div id="status">Sẵn sàng tạo Key...</div>
+  </div>
 
-        <div class="label">
-          Key
-        </div>
+  <div id="result">
 
-        <div
-          class="box key"
-          id="outKey"
-        >
-          —
-        </div>
+    <div class="block">
 
-        <button
-          class="btn btn-green"
-          onclick="copyText('outKey')"
-        >
-          Sao chép Key
-        </button>
-
+      <div class="label">
+        Key
       </div>
 
-      <div class="block">
-
-        <div class="label">
-          Link4M
-        </div>
-
-        <div
-          class="box link"
-          id="outLink"
-        >
-          —
-        </div>
-
-        <button
-          class="btn btn-main"
-          onclick="openLink()"
-        >
-          Mở Link4M
-        </button>
-
-        <button
-          class="btn btn-ghost"
-          onclick="copyText('outLink')"
-        >
-          Sao chép Link4M
-        </button>
-
+      <div
+        class="box key"
+        id="outKey"
+      >
+        Hoàn thành Link4M để nhận Key
       </div>
+
+      <button
+        class="btn btn-green"
+        onclick="copyText('outKey')"
+      >
+        Sao chép Key
+      </button>
 
     </div>
 
-    <p class="foot">
-      make by LoveMeizu
-    </p>
+    <div class="block">
+
+      <div class="label">
+        Link4M
+      </div>
+
+      <div
+        class="box link"
+        id="outLink"
+      >
+        —
+      </div>
+
+      <button
+        class="btn btn-main"
+        onclick="openLink()"
+      >
+        Mở Link4M
+      </button>
+
+      <button
+        class="btn btn-ghost"
+        onclick="copyText('outLink')"
+      >
+        Sao chép Link4M
+      </button>
+
+    </div>
 
   </div>
 
 </div>
 
-<script>
+<p class="foot">
+  <span>One-time Key System</span>
+  · LoveMeizu
+</p>
 
-/*
- * ==========================================
- * BACKEND
- * ==========================================
- *
- * Backend Render chính thức
- */
+  </div></div><script>
 
 const BACKEND_URL =
   "https://meizulover-key-backend.onrender.com";
 
 
-function setStatus(msg, type) {
+function setStatus(msg, type){
 
   const el =
     document.getElementById("status");
 
-  el.textContent =
-    msg;
+  el.textContent = msg;
+  el.className = type || "";
 
-  el.className =
-    type || "";
 }
 
 
-/*
- * ==========================================
- * COPY
- * ==========================================
- */
-
-function copyText(id) {
+function copyText(id){
 
   const el =
     document.getElementById(id);
@@ -652,21 +774,18 @@ function copyText(id) {
   const text =
     el.textContent.trim();
 
-  if (
-    !text ||
-    text === "—"
-  ) {
+  if(!text || text === "—"){
     return;
   }
 
-  if (
+  if(
     navigator.clipboard &&
     window.isSecureContext
-  ) {
+  ){
 
     navigator.clipboard
       .writeText(text)
-      .then(function () {
+      .then(function(){
 
         setStatus(
           "Đã sao chép!",
@@ -674,7 +793,7 @@ function copyText(id) {
         );
 
       })
-      .catch(function () {
+      .catch(function(){
 
         fallbackCopy(text);
 
@@ -687,25 +806,18 @@ function copyText(id) {
 }
 
 
-function fallbackCopy(text) {
+function fallbackCopy(text){
 
   const ta =
     document.createElement("textarea");
 
-  ta.value =
-    text;
-
-  ta.style.position =
-    "fixed";
-
-  ta.style.left =
-    "-9999px";
+  ta.value = text;
 
   document.body.appendChild(ta);
 
   ta.select();
 
-  try {
+  try{
 
     document.execCommand("copy");
 
@@ -714,7 +826,7 @@ function fallbackCopy(text) {
       "ok"
     );
 
-  } catch (e) {
+  }catch(e){
 
     alert(text);
 
@@ -724,13 +836,7 @@ function fallbackCopy(text) {
 }
 
 
-/*
- * ==========================================
- * OPEN LINK4M
- * ==========================================
- */
-
-function openLink() {
+function openLink(){
 
   const url =
     document
@@ -738,55 +844,45 @@ function openLink() {
       .textContent
       .trim();
 
-  if (
+  if(
     url &&
     url.indexOf("http") === 0
-  ) {
+  ){
 
-    window.location.href =
-      url;
+    window.location.href = url;
 
   }
-
 }
 
 
-/*
- * ==========================================
- * CREATE KEY
- * ==========================================
- */
-
-async function createAll() {
+async function createAll(){
 
   const btn =
     document.getElementById("btnCreate");
 
-  btn.disabled =
-    true;
+  btn.disabled = true;
 
   btn.textContent =
     "Đang tạo Link4M...";
 
   document
     .getElementById("result")
-    .style.display =
-    "none";
+    .style.display = "none";
 
   setStatus(
-    "Đang kết nối backend...",
+    "Đang tạo Key + Link4M...",
     ""
   );
 
-  try {
+  try{
 
     const response =
       await fetch(
         BACKEND_URL + "/create",
         {
-          method: "POST",
+          method:"POST",
 
-          headers: {
+          headers:{
             "Content-Type":
               "application/json"
           },
@@ -796,8 +892,7 @@ async function createAll() {
         }
       );
 
-
-    if (!response.ok) {
+    if(!response.ok){
 
       throw new Error(
         "Backend HTTP " +
@@ -806,12 +901,10 @@ async function createAll() {
 
     }
 
-
     const data =
       await response.json();
 
-
-    if (!data.success) {
+    if(!data.success){
 
       throw new Error(
         data.error ||
@@ -820,8 +913,7 @@ async function createAll() {
 
     }
 
-
-    if (!data.shortUrl) {
+    if(!data.shortUrl){
 
       throw new Error(
         "Backend không trả Link4M"
@@ -829,80 +921,66 @@ async function createAll() {
 
     }
 
-
     document
       .getElementById("outKey")
       .textContent =
       "Hoàn thành Link4M để nhận Key";
-
 
     document
       .getElementById("outLink")
       .textContent =
       data.shortUrl;
 
-
     document
       .getElementById("result")
       .style.display =
       "block";
-
 
     setStatus(
       "Đã tạo Link4M — đang chuyển...",
       "ok"
     );
 
-
-    setTimeout(function () {
+    setTimeout(function(){
 
       window.location.href =
         data.shortUrl;
 
-    }, 500);
+    },500);
 
-
-  } catch (error) {
+  }catch(error){
 
     console.error(
       "CREATE ERROR:",
       error
     );
 
-
     let msg =
       error.message ||
       String(error);
 
-
-    if (
-      msg.includes("Failed to fetch")
-    ) {
+    if(
+      msg.indexOf(
+        "Failed to fetch"
+      ) >= 0
+    ){
 
       msg =
-        "Không kết nối được backend.\n" +
-        "Hãy kiểm tra mạng hoặc backend Render.";
+        "Không kết nối được backend.";
 
     }
-
 
     setStatus(
       msg,
       "err"
     );
 
-
-    btn.disabled =
-      false;
+    btn.disabled = false;
 
     btn.textContent =
       "Tạo Key Free";
-
   }
-
 }
 
-</script>
-
-</body>
+</script></body>
 </html>
