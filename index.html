@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+>
+
+<title>Tạo Key + Link4M</title>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+:root {
+  --bg: #07070a;
+
+  --card:
+    rgba(255,255,255,.065);
+
+  --card2:
+    rgba(255,255,255,.035);
+
+  --stroke:
+    rgba(255,255,255,.13);
+
+  --stroke2:
+    rgba(255,255,255,.08);
+
+  --text: #f4f4f5;
+
+  --muted: #a1a1aa;
+
+  --blue: #3b82f6;
+
+  --blue2: #2563eb;
+
+  --green: #22c55e;
+
+  --red: #ef4444;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+
+  font-family:
+    "Plus Jakarta Sans",
+    system-ui,
+    sans-serif;
+
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 20px;
+
+  color: var(--text);
+
+  overflow: hidden;
+
+  background:
+
+    radial-gradient(
+      700px 400px
+      at 0% 0%,
+      rgba(59,130,246,.22),
+      transparent 60%
+    ),
+
+    radial-gradient(
+      600px 400px
+      at 100% 100%,
+      rgba(0,180,255,.12),
+      transparent 60%
+    ),
+
+    var(--bg);
+}
+
+
+/* =========================
+   LIQUID LIGHT
+========================= */
+
+body::before {
+
+  content: "";
+
+  position: fixed;
+
+  width: 300px;
+  height: 300px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(80,150,255,.12),
+      transparent 70%
+    );
+
+  filter: blur(25px);
+
+  left: -100px;
+  top: -80px;
+
+  animation:
+    floatLight 9s
+    ease-in-out infinite;
+
+  pointer-events: none;
+}
+
+body::after {
+
+  content: "";
+
+  position: fixed;
+
+  width: 300px;
+  height: 300px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0,200,255,.10),
+      transparent 70%
+    );
+
+  filter: blur(30px);
+
+  right: -100px;
+  bottom: -100px;
+
+  animation:
+    floatLight2 11s
+    ease-in-out infinite;
+
+  pointer-events: none;
+}
+
+@keyframes floatLight {
+
+  0%,100% {
+    transform:
+      translate(0,0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate(120px,80px)
+      scale(1.2);
+  }
+
+}
+
+@keyframes floatLight2 {
+
+  0%,100% {
+    transform:
+      translate(0,0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate(-100px,-70px)
+      scale(1.15);
+  }
+
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.shell {
+
+  width: 100%;
+
+  max-width: 420px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+.card {
+
+  position: relative;
+
+  overflow: hidden;
+
+  padding:
+    28px
+    22px
+    24px;
+
+  border-radius: 27px;
+
+  background:
+
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.095),
+      rgba(255,255,255,.035)
+    );
+
+  border:
+    1px solid var(--stroke);
+
+  box-shadow:
+
+    0 30px 80px
+      rgba(0,0,0,.52),
+
+    inset 0 1px 0
+      rgba(255,255,255,.15),
+
+    inset 0 -1px 0
+      rgba(255,255,255,.025);
+
+  backdrop-filter:
+    blur(28px)
+    saturate(145%);
+
+  -webkit-backdrop-filter:
+    blur(28px)
+    saturate(145%);
+}
+
+
+/* reflection */
+
+.card::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent 20%,
+      rgba(255,255,255,.10),
+      transparent 55%
+    );
+
+  transform:
+    translateX(-120%);
+
+  animation:
+    shine 6s
+    ease-in-out infinite;
+
+  pointer-events: none;
+}
+
+@keyframes shine {
+
+  0%,45% {
+    transform:
+      translateX(-120%);
+  }
+
+  70%,100% {
+    transform:
+      translateX(120%);
+  }
+
+}
+
+
+/* =========================
+   BADGE
+========================= */
+
+.badge {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: .07em;
+
+  text-transform: uppercase;
+
+  color: #a8ccff;
+
+  background:
+    rgba(59,130,246,.10);
+
+  border:
+    1px solid
+    rgba(59,130,246,.22);
+
+  padding:
+    6px 10px;
+
+  border-radius: 999px;
+
+  margin-bottom: 14px;
+}
+
+.badge-dot {
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #60a5fa;
+
+  box-shadow:
+    0 0 10px
+    rgba(96,165,250,.8);
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+h1 {
+
+  font-size: 23px;
+
+  font-weight: 800;
+
+  letter-spacing: -.035em;
+
+  margin-bottom: 8px;
+}
+
+.sub {
+
+  font-size: 13.5px;
+
+  line-height: 1.55;
+
+  color: var(--muted);
+
+  margin-bottom: 21px;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn {
+
+  width: 100%;
+
+  border: none;
+
+  border-radius: 15px;
+
+  padding:
+    15px 16px;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  font-family: inherit;
+
+  cursor: pointer;
+
+  color: white;
+
+  transition:
+    transform .18s ease,
+    opacity .18s ease,
+    box-shadow .18s ease;
+}
+
+.btn:active {
+
+  transform:
+    scale(.975);
+}
+
+.btn:disabled {
+
+  opacity: .5;
+
+  cursor:
+    not-allowed;
+
+  transform:
+    none;
+}
+
+
+.btn-main {
+
+  background:
+
+    linear-gradient(
+      135deg,
+      #3b82f6,
+      #2563eb
+    );
+
+  box-shadow:
+    0 10px 30px
+    rgba(37,99,235,.30);
+}
+
+.btn-main:hover {
+
+  box-shadow:
+    0 12px 35px
+    rgba(37,99,235,.40);
+}
+
+.btn-green {
+
+  background:
+
+    linear-gradient(
+      135deg,
+      #22c55e,
+      #16a34a
+    );
+
+  box-shadow:
+    0 8px 24px
+    rgba(34,197,94,.20);
+
+  margin-top: 10px;
+}
+
+.btn-ghost {
+
+  background:
+    rgba(255,255,255,.055);
+
+  border:
+    1px solid var(--stroke);
+
+  margin-top: 8px;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+#status {
+
+  min-height: 22px;
+
+  margin:
+    14px 0 4px;
+
+  font-size: 12.5px;
+
+  font-weight: 600;
+
+  color: #fbbf24;
+
+  white-space: pre-line;
+
+  word-break: break-word;
+}
+
+#status.err {
+
+  color:
+    #f87171;
+}
+
+#status.ok {
+
+  color:
+    #4ade80;
+}
+
+
+/* =========================
+   RESULT
+========================= */
+
+#result {
+
+  display: none;
+
+  margin-top: 18px;
+}
+
+.block {
+
+  margin-bottom: 14px;
+}
+
+.label {
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: .07em;
+
+  color: var(--muted);
+
+  margin-bottom: 8px;
+}
+
+.box {
+
+  border-radius: 15px;
+
+  padding:
+    14px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  word-break: break-all;
+
+  background:
+    rgba(255,255,255,.035);
+
+  border:
+    1px dashed
+    var(--stroke);
+}
+
+.box.key {
+
+  color:
+    #86efac;
+
+  background:
+    rgba(34,197,94,.065);
+
+  border-color:
+    rgba(34,197,94,.30);
+}
+
+.box.link {
+
+  color:
+    #93c5fd;
+
+  background:
+    rgba(59,130,246,.065);
+
+  border-color:
+    rgba(59,130,246,.30);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.foot {
+
+  margin-top: 18px;
+
+  font-size: 11px;
+
+  line-height: 1.55;
+
+  color:
+    #71717a;
+
+  text-align: center;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="shell">
+
+  <div class="card">
+
+    <div class="badge">
+      <span class="badge-dot"></span>
+      One-time key
+    </div>
+
+    <h1>
+      Tạo Key Beta
+    </h1>
+
+    <p class="sub">
+      Bấm <b>Key Free</b> để tạo Key.
+      Hoàn thành Link4M để nhận Key
+      và sử dụng ứng dụng.
+    </p>
+
+
+    <button
+      class="btn btn-main"
+      id="btnCreate"
+      onclick="createAll()"
+    >
+      Tạo Key Free
+    </button>
+
+
+    <div id="status">
+      Sẵn sàng tạo Key...
+    </div>
+
+
+    <div id="result">
+
+      <div class="block">
+
+        <div class="label">
+          Key
+        </div>
+
+        <div
+          class="box key"
+          id="outKey"
+        >
+          —
+        </div>
+
+        <button
+          class="btn btn-green"
+          onclick="copyText('outKey')"
+        >
+          Sao chép Key
+        </button>
+
+      </div>
+
+
+      <div class="block">
+
+        <div class="label">
+          Link4M
+        </div>
+
+        <div
+          class="box link"
+          id="outLink"
+        >
+          —
+        </div>
+
+        <button
+          class="btn btn-main"
+          onclick="openLink()"
+        >
+          Mở Link4M
+        </button>
+
+        <button
+          class="btn btn-ghost"
+          onclick="copyText('outLink')"
+        >
+          Sao chép Link4M
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <p class="foot">
+      make by LoveMeizu
+    </p>
+
+  </div>
+
+</div>
+
+
+<script>
+
+/*
+ * ==========================================
+ * BACKEND
+ * ==========================================
+ *
+ * Không đặt Link4M API token ở đây.
+ */
+
+const BACKEND_URL =
+  "https://YOUR-BACKEND-DOMAIN";
+
+
+function setStatus(
+  msg,
+  type
+) {
+
+  const el =
+    document.getElementById(
+      "status"
+    );
+
+  el.textContent =
+    msg;
+
+  el.className =
+    type || "";
+}
+
+
+/*
+ * ==========================================
+ * COPY
+ * ==========================================
+ */
+
+function copyText(id) {
+
+  const el =
+    document.getElementById(id);
+
+  const text =
+    el.textContent.trim();
+
+  if (
+    !text ||
+    text === "—"
+  ) {
+    return;
+  }
+
+
+  if (
+    navigator.clipboard &&
+    window.isSecureContext
+  ) {
+
+    navigator.clipboard
+      .writeText(text)
+      .then(function () {
+
+        setStatus(
+          "Đã sao chép!",
+          "ok"
+        );
+
+      });
+
+    return;
+  }
+
+
+  const ta =
+    document.createElement(
+      "textarea"
+    );
+
+  ta.value =
+    text;
+
+  document.body.appendChild(
+    ta
+  );
+
+  ta.select();
+
+  try {
+
+    document.execCommand(
+      "copy"
+    );
+
+    setStatus(
+      "Đã sao chép!",
+      "ok"
+    );
+
+  } catch (e) {
+
+    alert(text);
+  }
+
+  document.body.removeChild(
+    ta
+  );
+}
+
+
+/*
+ * ==========================================
+ * OPEN LINK4M
+ * ==========================================
+ */
+
+function openLink() {
+
+  const url =
+    document
+      .getElementById("outLink")
+      .textContent
+      .trim();
+
+
+  if (
+    url &&
+    url.indexOf("http") === 0
+  ) {
+
+    window.location.href =
+      url;
+  }
+}
+
+
+/*
+ * ==========================================
+ * CREATE
+ * ==========================================
+ */
+
+async function createAll() {
+
+  const btn =
+    document.getElementById(
+      "btnCreate"
+    );
+
+
+  btn.disabled =
+    true;
+
+  btn.textContent =
+    "Đang tạo Link4M...";
+
+
+  document
+    .getElementById("result")
+    .style.display =
+    "none";
+
+
+  setStatus(
+    "Đang tạo Key + Link4M...",
+    ""
+  );
+
+
+  try {
+
+    /*
+     * Gọi backend.
+     *
+     * Backend sẽ:
+     * 1. tạo Key
+     * 2. tạo session
+     * 3. lưu Firebase
+     * 4. gọi Link4M API
+     * 5. trả shortUrl
+     */
+
+    const response =
+      await fetch(
+        BACKEND_URL +
+        "/create",
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type":
+              "application/json"
+          },
+
+          body:
+            JSON.stringify({})
+        }
+      );
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        "Backend HTTP " +
+        response.status
+      );
+    }
+
+
+    const data =
+      await response.json();
+
+
+    if (!data.success) {
+
+      throw new Error(
+        data.error ||
+        "Không tạo được Key"
+      );
+    }
+
+
+    if (!data.shortUrl) {
+
+      throw new Error(
+        "Backend không trả Link4M"
+      );
+    }
+
+
+    /*
+     * Backend có thể trả Key
+     * hoặc không trả Key.
+     *
+     * Với flow bảo mật hiện tại,
+     * KHÔNG hiển thị Key ở đây.
+     */
+
+    document
+      .getElementById("outKey")
+      .textContent =
+      "Hoàn thành Link4M để nhận Key";
+
+
+    document
+      .getElementById("outLink")
+      .textContent =
+      data.shortUrl;
+
+
+    document
+      .getElementById("result")
+      .style.display =
+      "block";
+
+
+    setStatus(
+      "Đã tạo Link4M — đang chuyển...",
+      "ok"
+    );
+
+
+    /*
+     * Chuyển thẳng sang Link4M.
+     */
+
+    setTimeout(
+      function () {
+
+        window.location.href =
+          data.shortUrl;
+
+      },
+      500
+    );
+
+
+  } catch (error) {
+
+    console.error(
+      error
+    );
+
+
+    let msg =
+      error.message ||
+      String(error);
+
+
+    if (
+      msg.indexOf(
+        "Failed to fetch"
+      ) >= 0
+    ) {
+
+      msg =
+        "Không kết nối được backend.";
+    }
+
+
+    setStatus(
+      msg,
+      "err"
+    );
+
+
+    btn.disabled =
+      false;
+
+    btn.textContent =
+      "Tạo Key Free";
+  }
+}
+
+</script>
+
+</body>
+
+</html>
