@@ -1,9 +1,0 @@
-{
-  "$schema": "https://unpkg.com/wrangler@4/config-schema.json",
-
-  "name": "lovemeizu-key",
-
-  "main": "worker.js",
-
-  "compatibility_date": "2026-09-21"
-}
