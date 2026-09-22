@@ -19,29 +19,15 @@
 
 :root {
   --bg: #07070a;
-
-  --card:
-    rgba(255,255,255,.065);
-
-  --card2:
-    rgba(255,255,255,.035);
-
-  --stroke:
-    rgba(255,255,255,.13);
-
-  --stroke2:
-    rgba(255,255,255,.08);
-
+  --card: rgba(255,255,255,.065);
+  --card2: rgba(255,255,255,.035);
+  --stroke: rgba(255,255,255,.13);
+  --stroke2: rgba(255,255,255,.08);
   --text: #f4f4f5;
-
   --muted: #a1a1aa;
-
   --blue: #3b82f6;
-
   --blue2: #2563eb;
-
   --green: #22c55e;
-
   --red: #ef4444;
 }
 
@@ -52,7 +38,6 @@
 }
 
 body {
-
   font-family:
     "Plus Jakarta Sans",
     system-ui,
@@ -91,13 +76,7 @@ body {
     var(--bg);
 }
 
-
-/* =========================
-   LIQUID LIGHT
-========================= */
-
 body::before {
-
   content: "";
 
   position: fixed;
@@ -127,7 +106,6 @@ body::before {
 }
 
 body::after {
-
   content: "";
 
   position: fixed;
@@ -188,24 +166,14 @@ body::after {
 
 }
 
-
-/* =========================
-   CARD
-========================= */
-
 .shell {
-
   width: 100%;
-
   max-width: 420px;
-
   position: relative;
-
   z-index: 2;
 }
 
 .card {
-
   position: relative;
 
   overflow: hidden;
@@ -248,11 +216,7 @@ body::after {
     saturate(145%);
 }
 
-
-/* reflection */
-
 .card::before {
-
   content: "";
 
   position: absolute;
@@ -291,13 +255,7 @@ body::after {
 
 }
 
-
-/* =========================
-   BADGE
-========================= */
-
 .badge {
-
   display: inline-flex;
 
   align-items: center;
@@ -330,7 +288,6 @@ body::after {
 }
 
 .badge-dot {
-
   width: 6px;
   height: 6px;
 
@@ -343,13 +300,7 @@ body::after {
     rgba(96,165,250,.8);
 }
 
-
-/* =========================
-   TEXT
-========================= */
-
 h1 {
-
   font-size: 23px;
 
   font-weight: 800;
@@ -360,7 +311,6 @@ h1 {
 }
 
 .sub {
-
   font-size: 13.5px;
 
   line-height: 1.55;
@@ -370,13 +320,7 @@ h1 {
   margin-bottom: 21px;
 }
 
-
-/* =========================
-   BUTTON
-========================= */
-
 .btn {
-
   width: 100%;
 
   border: none;
@@ -403,13 +347,11 @@ h1 {
 }
 
 .btn:active {
-
   transform:
     scale(.975);
 }
 
 .btn:disabled {
-
   opacity: .5;
 
   cursor:
@@ -419,9 +361,7 @@ h1 {
     none;
 }
 
-
 .btn-main {
-
   background:
 
     linear-gradient(
@@ -436,14 +376,12 @@ h1 {
 }
 
 .btn-main:hover {
-
   box-shadow:
     0 12px 35px
     rgba(37,99,235,.40);
 }
 
 .btn-green {
-
   background:
 
     linear-gradient(
@@ -460,7 +398,6 @@ h1 {
 }
 
 .btn-ghost {
-
   background:
     rgba(255,255,255,.055);
 
@@ -470,13 +407,7 @@ h1 {
   margin-top: 8px;
 }
 
-
-/* =========================
-   STATUS
-========================= */
-
 #status {
-
   min-height: 22px;
 
   margin:
@@ -494,36 +425,25 @@ h1 {
 }
 
 #status.err {
-
   color:
     #f87171;
 }
 
 #status.ok {
-
   color:
     #4ade80;
 }
 
-
-/* =========================
-   RESULT
-========================= */
-
 #result {
-
   display: none;
-
   margin-top: 18px;
 }
 
 .block {
-
   margin-bottom: 14px;
 }
 
 .label {
-
   font-size: 10px;
 
   font-weight: 700;
@@ -538,7 +458,6 @@ h1 {
 }
 
 .box {
-
   border-radius: 15px;
 
   padding:
@@ -559,7 +478,6 @@ h1 {
 }
 
 .box.key {
-
   color:
     #86efac;
 
@@ -571,7 +489,6 @@ h1 {
 }
 
 .box.link {
-
   color:
     #93c5fd;
 
@@ -582,13 +499,7 @@ h1 {
     rgba(59,130,246,.30);
 }
 
-
-/* =========================
-   FOOTER
-========================= */
-
 .foot {
-
   margin-top: 18px;
 
   font-size: 11px;
@@ -602,7 +513,6 @@ h1 {
 }
 
 </style>
-
 </head>
 
 <body>
@@ -626,7 +536,6 @@ h1 {
       và sử dụng ứng dụng.
     </p>
 
-
     <button
       class="btn btn-main"
       id="btnCreate"
@@ -635,11 +544,9 @@ h1 {
       Tạo Key Free
     </button>
 
-
     <div id="status">
       Sẵn sàng tạo Key...
     </div>
-
 
     <div id="result">
 
@@ -664,7 +571,6 @@ h1 {
         </button>
 
       </div>
-
 
       <div class="block">
 
@@ -697,7 +603,6 @@ h1 {
 
     </div>
 
-
     <p class="foot">
       make by LoveMeizu
     </p>
@@ -706,7 +611,6 @@ h1 {
 
 </div>
 
-
 <script>
 
 /*
@@ -714,22 +618,17 @@ h1 {
  * BACKEND
  * ==========================================
  *
- * Không đặt Link4M API token ở đây.
+ * Backend Render chính thức
  */
 
 const BACKEND_URL =
   "https://meizulover-key-backend.onrender.com";
 
 
-function setStatus(
-  msg,
-  type
-) {
+function setStatus(msg, type) {
 
   const el =
-    document.getElementById(
-      "status"
-    );
+    document.getElementById("status");
 
   el.textContent =
     msg;
@@ -760,7 +659,6 @@ function copyText(id) {
     return;
   }
 
-
   if (
     navigator.clipboard &&
     window.isSecureContext
@@ -775,31 +673,41 @@ function copyText(id) {
           "ok"
         );
 
+      })
+      .catch(function () {
+
+        fallbackCopy(text);
+
       });
 
     return;
   }
 
+  fallbackCopy(text);
+}
+
+
+function fallbackCopy(text) {
 
   const ta =
-    document.createElement(
-      "textarea"
-    );
+    document.createElement("textarea");
 
   ta.value =
     text;
 
-  document.body.appendChild(
-    ta
-  );
+  ta.style.position =
+    "fixed";
+
+  ta.style.left =
+    "-9999px";
+
+  document.body.appendChild(ta);
 
   ta.select();
 
   try {
 
-    document.execCommand(
-      "copy"
-    );
+    document.execCommand("copy");
 
     setStatus(
       "Đã sao chép!",
@@ -809,11 +717,10 @@ function copyText(id) {
   } catch (e) {
 
     alert(text);
+
   }
 
-  document.body.removeChild(
-    ta
-  );
+  document.body.removeChild(ta);
 }
 
 
@@ -831,7 +738,6 @@ function openLink() {
       .textContent
       .trim();
 
-
   if (
     url &&
     url.indexOf("http") === 0
@@ -839,23 +745,22 @@ function openLink() {
 
     window.location.href =
       url;
+
   }
+
 }
 
 
 /*
  * ==========================================
- * CREATE
+ * CREATE KEY
  * ==========================================
  */
 
 async function createAll() {
 
   const btn =
-    document.getElementById(
-      "btnCreate"
-    );
-
+    document.getElementById("btnCreate");
 
   btn.disabled =
     true;
@@ -863,36 +768,21 @@ async function createAll() {
   btn.textContent =
     "Đang tạo Link4M...";
 
-
   document
     .getElementById("result")
     .style.display =
     "none";
 
-
   setStatus(
-    "Đang tạo Key + Link4M...",
+    "Đang kết nối backend...",
     ""
   );
 
-
   try {
-
-    /*
-     * Gọi backend.
-     *
-     * Backend sẽ:
-     * 1. tạo Key
-     * 2. tạo session
-     * 3. lưu Firebase
-     * 4. gọi Link4M API
-     * 5. trả shortUrl
-     */
 
     const response =
       await fetch(
-        BACKEND_URL +
-        "/create",
+        BACKEND_URL + "/create",
         {
           method: "POST",
 
@@ -913,6 +803,7 @@ async function createAll() {
         "Backend HTTP " +
         response.status
       );
+
     }
 
 
@@ -926,6 +817,7 @@ async function createAll() {
         data.error ||
         "Không tạo được Key"
       );
+
     }
 
 
@@ -934,16 +826,9 @@ async function createAll() {
       throw new Error(
         "Backend không trả Link4M"
       );
+
     }
 
-
-    /*
-     * Backend có thể trả Key
-     * hoặc không trả Key.
-     *
-     * Với flow bảo mật hiện tại,
-     * KHÔNG hiển thị Key ở đây.
-     */
 
     document
       .getElementById("outKey")
@@ -969,24 +854,18 @@ async function createAll() {
     );
 
 
-    /*
-     * Chuyển thẳng sang Link4M.
-     */
+    setTimeout(function () {
 
-    setTimeout(
-      function () {
+      window.location.href =
+        data.shortUrl;
 
-        window.location.href =
-          data.shortUrl;
-
-      },
-      500
-    );
+    }, 500);
 
 
   } catch (error) {
 
     console.error(
+      "CREATE ERROR:",
       error
     );
 
@@ -997,13 +876,13 @@ async function createAll() {
 
 
     if (
-      msg.indexOf(
-        "Failed to fetch"
-      ) >= 0
+      msg.includes("Failed to fetch")
     ) {
 
       msg =
-        "Không kết nối được backend.";
+        "Không kết nối được backend.\n" +
+        "Hãy kiểm tra mạng hoặc backend Render.";
+
     }
 
 
@@ -1018,11 +897,12 @@ async function createAll() {
 
     btn.textContent =
       "Tạo Key Free";
+
   }
+
 }
 
 </script>
 
 </body>
-
 </html>
